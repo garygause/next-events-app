@@ -8,8 +8,6 @@ import ArrowRightIcon from '@/components/icons/arrow-right-icon';
 import styles from './EventItem.module.css';
 
 export default function EventItem(props) {
-  console.log('eventitem');
-  console.log(props);
   const { title, image, date, location, id } = props;
   const formattedDate = new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',

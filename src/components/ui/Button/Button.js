@@ -5,7 +5,7 @@ import styles from './Button.module.css';
 function Button(props) {
   // variant = contained, outlined, text
   // color = primary, seconday, danger
-
+  // need to support size
   const {
     href,
     children,
@@ -18,20 +18,35 @@ function Button(props) {
     ...other
   } = props;
 
-  let disabledClass = disabled ? 'disabled' : '';
+  const disabledClass = disabled ? 'disabled' : '';
 
-  return (
-    <Link
-      href={href}
-      disabled={disabled}
-      className={`${styles.btn} ${styles[variant]} ${styles[color]} ${disabledClass} ${classes}`}
-      {...other}
-    >
-      {startIcon && <span className={styles.icon}>{startIcon}</span>}
-      <span>{props.children}</span>
-      {endIcon && <span className={styles.icon}>{endIcon}</span>}
-    </Link>
-  );
+  if (href) {
+    return (
+      <Link
+        href={href}
+        disabled={disabled}
+        className={`${styles.btn} ${styles[variant]} ${styles[color]} ${disabledClass} ${classes}`}
+        {...other}
+      >
+        {startIcon && <span className={styles.icon}>{startIcon}</span>}
+        <span>{props.children}</span>
+        {endIcon && <span className={styles.icon}>{endIcon}</span>}
+      </Link>
+    );
+  } else {
+    return (
+      <button
+        href={href}
+        disabled={disabled}
+        className={`${styles.btn} ${styles[variant]} ${styles[color]} ${disabledClass} ${classes}`}
+        {...other}
+      >
+        {startIcon && <span className={styles.icon}>{startIcon}</span>}
+        <span>{props.children}</span>
+        {endIcon && <span className={styles.icon}>{endIcon}</span>}
+      </button>
+    );
+  }
 }
 
 export default Button;
