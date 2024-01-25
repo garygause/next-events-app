@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import Button from '@ui/Button/Button';
+import Button from '@ui/Button';
 import DateIcon from '@/components/icons/date-icon';
 import AddressIcon from '@/components/icons/address-icon';
 import ArrowRightIcon from '@/components/icons/arrow-right-icon';
@@ -36,7 +36,7 @@ export default function EventItem(props) {
         <div className={styles.actions}>
           <Button
             link={`/events/${id}`}
-            variant="text"
+            variant="contained"
             disabled={false}
             color="primary"
             endsWith={<ArrowRightIcon />}

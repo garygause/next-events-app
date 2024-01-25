@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import styles from './Button.module.css';
 
-export default function Button(props) {
+function Button(props) {
   // variant = contained, outlined, text
   // color = primary, seconday, danger
 
@@ -36,3 +36,5 @@ export default function Button(props) {
     </Link>
   );
 }
+
+export default Button;
