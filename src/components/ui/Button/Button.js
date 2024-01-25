@@ -7,15 +7,12 @@ function Button(props) {
   // color = primary, seconday, danger
 
   const {
-    action,
     href,
-    to,
-    link,
     children,
     disabled = false,
-    className = '',
-    startsWith = '',
-    endsWith = '',
+    classes = '',
+    startIcon = '',
+    endIcon = '',
     variant = 'contained',
     color = 'primary',
     ...other
@@ -25,14 +22,14 @@ function Button(props) {
 
   return (
     <Link
-      href={href || link || to || action}
+      href={href}
       disabled={disabled}
-      className={`${styles.btn} ${styles[variant]} ${styles[color]} ${disabledClass} ${className}`}
+      className={`${styles.btn} ${styles[variant]} ${styles[color]} ${disabledClass} ${classes}`}
       {...other}
     >
-      {startsWith && <span className={styles.icon}>{startsWith}</span>}
+      {startIcon && <span className={styles.icon}>{startIcon}</span>}
       <span>{props.children}</span>
-      {endsWith && <span className={styles.icon}>{endsWith}</span>}
+      {endIcon && <span className={styles.icon}>{endIcon}</span>}
     </Link>
   );
 }
