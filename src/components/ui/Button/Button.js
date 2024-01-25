@@ -3,6 +3,9 @@ import Link from 'next/link';
 import styles from './Button.module.css';
 
 export default function Button(props) {
+  // variant = contained, outlined, text
+  // color = primary, seconday, danger
+
   const {
     action,
     href,
@@ -11,15 +14,14 @@ export default function Button(props) {
     children,
     disabled = false,
     className = '',
+    startsWith = '',
+    endsWith = '',
     variant = 'contained',
     color = 'primary',
     ...other
   } = props;
 
-  // variant = contained, outlined, text
-  // color = primary, seconday, danger
-
-  let disabledClass = disabled ? styles.disabled : '';
+  let disabledClass = disabled ? 'disabled' : '';
 
   return (
     <Link
@@ -28,7 +30,9 @@ export default function Button(props) {
       className={`${styles.btn} ${styles[variant]} ${styles[color]} ${disabledClass} ${className}`}
       {...other}
     >
-      {props.children}
+      {startsWith && <span className={styles.icon}>{startsWith}</span>}
+      <span>{props.children}</span>
+      {endsWith && <span className={styles.icon}>{endsWith}</span>}
     </Link>
   );
 }

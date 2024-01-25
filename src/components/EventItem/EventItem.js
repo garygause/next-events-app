@@ -36,14 +36,12 @@ export default function EventItem(props) {
         <div className={styles.actions}>
           <Button
             link={`/events/${id}`}
-            variant="contained"
-            disabled={true}
+            variant="text"
+            disabled={false}
             color="primary"
+            endsWith={<ArrowRightIcon />}
           >
-            <span>Explore Event</span>
-            <span className={styles.icon}>
-              <ArrowRightIcon />
-            </span>
+            Explore Event
           </Button>
         </div>
       </div>
