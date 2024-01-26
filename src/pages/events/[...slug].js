@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 
+import Alert from '@ui/Alert';
 import Button from '@ui/Button';
 import EventList from '@/components/EventList/EventList';
 import ResultsTitle from '@/components/EventDetails/results-title';
-import ErrorAlert from '../../components/EventDetails/error-alert';
 
 import { getFilteredEvents } from '../../../events';
 
@@ -19,9 +19,9 @@ export default function FilteredEvents(props) {
   if (isNaN(year) || isNaN(month)) {
     return (
       <>
-        <ErrorAlert>
-          <p className="center">Invalid search parameters. Please try again.</p>
-        </ErrorAlert>
+        <Alert variant="outlined" color="danger">
+          Invalid search parameters. Please try again.
+        </Alert>
         <div className="center">
           <Button href="/events">Show All Events</Button>
         </div>
@@ -33,9 +33,9 @@ export default function FilteredEvents(props) {
   if (!events || events.length == 0) {
     return (
       <>
-        <ErrorAlert>
-          <p className="center">No Matches Found.</p>
-        </ErrorAlert>
+        <Alert variant="outlined" color="secondary">
+          No Matches Found.
+        </Alert>
         <div className="center">
           <Button href="/events">Show All Events</Button>
         </div>
