@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Alert from '@ui/Alert';
 import Button from '@ui/Button';
 import EventList from '@/components/EventList/EventList';
-import ResultsTitle from '@/components/EventDetails/results-title';
+import ResultsTitle from '@/components/ResultsTitle/ResultsTitle';
 
 import { getFilteredEvents } from '../../../events';
 

@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
 
-import EventSummary from '@/components/EventDetails/event-summary';
-import EventLogistics from '@/components/EventDetails/event-logistics';
-import EventContent from '@/components/EventDetails/event-content';
+import EventSummary from '@/components/EventDetails/EventSummary';
+import EventLogistics from '@/components/EventDetails/EventLogistics';
+import EventContent from '@/components/EventDetails/EventContent';
 import Alert from '@ui/Alert';
 
 import { getEventById } from '../../../events';

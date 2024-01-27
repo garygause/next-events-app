@@ -9,6 +9,7 @@ import styles from './EventItem.module.css';
 
 export default function EventItem(props) {
   const { title, image, date, location, id } = props;
+
   const formattedDate = new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'long',
