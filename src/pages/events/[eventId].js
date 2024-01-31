@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import EventSummary from '@/components/EventDetails/EventSummary';
@@ -5,12 +6,25 @@ import EventLogistics from '@/components/EventDetails/EventLogistics';
 import EventContent from '@/components/EventDetails/EventContent';
 import Alert from '@ui/Alert';
 
-import { getEventById } from '../../../events';
-
 export default function EventDetails() {
+  const [event, setEvent] = useState();
+
   const router = useRouter();
   const id = router.query.eventId;
-  const event = getEventById(id);
+
+  useEffect(() => {
+    if (id) {
+      fetch(
+        `https://next-events-5e5e0-default-rtdb.firebaseio.com/events/${id}.json`
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          console.log({ id: id, ...data });
+          setEvent({ id: id, ...data });
+        });
+    }
+  }, [id]);
+
   return (
     <>
       {!event && (
