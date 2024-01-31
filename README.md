@@ -4,7 +4,7 @@ This is an example project I have written using the Nextjs framework. NextEvents
 
 # Stack
 
-Nextjs 14, File Routing, Javascript, CSS Modules
+Nextjs 14, File Routing, SSR, SSG, Javascript, CSS Modules
 
 # Usage
 

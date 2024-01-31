@@ -1,3 +1,5 @@
+import Head from 'next/head';
+
 import EventList from '@/components/EventList/EventList';
 
 export default function HomePage(props) {
