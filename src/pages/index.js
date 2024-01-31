@@ -18,6 +18,6 @@ export async function getStaticProps() {
       for (const key in data) {
         data[key].isFeatured && featuredEvents.push({ id: key, ...data[key] });
       }
-      return { props: { events: featuredEvents }, revalidate: 10 };
+      return { props: { events: featuredEvents }, revalidate: 1800 };
     });
 }

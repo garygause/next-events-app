@@ -50,6 +50,6 @@ export async function getStaticProps() {
       for (const key in data) {
         allEvents.push({ id: key, ...data[key] });
       }
-      return { props: { events: allEvents }, revalidate: 10 };
+      return { props: { events: allEvents }, revalidate: 1800 };
     });
 }

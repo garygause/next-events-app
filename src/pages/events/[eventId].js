@@ -8,7 +8,7 @@ export default function EventDetails({ event }) {
     <>
       {!event && (
         <Alert variant="outlined" color="secondary">
-          Event not found.
+          Loading...
         </Alert>
       )}
       {event && (
@@ -37,6 +37,7 @@ export async function getStaticProps(context) {
       console.log({ id: id, ...data });
       return {
         props: { event: { id: id, ...data } },
+        revalidate: 30,
       };
     });
 }
@@ -53,7 +54,7 @@ export async function getStaticPaths() {
       }
       return {
         paths: paths,
-        fallback: false,
+        fallback: true,
       };
     });
 }
